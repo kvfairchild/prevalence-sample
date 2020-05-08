@@ -2,6 +2,7 @@ import numpy as np
 import sys
 from scipy.integrate import odeint
 from model_data.zip_codes import ZIP_CODES
+from model_data.prevalence_samples import DATES, SAMPLES
 
 
 class PlaceholderZipCodePrevalenceModel():
@@ -58,9 +59,7 @@ class PlaceholderZipCodePrevalenceModel():
 
 if __name__ == "__main__":
 
-    dates = sys.argv[1]
-    inputs_sample = sys.argv[2]
-
     prevalence_model = PlaceholderZipCodePrevalenceModel()
-    prevalence_model.single_draw_from_model()
+    results = prevalence_model.single_draw_from_model(DATES, SAMPLES)
+    print(results)
 
