@@ -1,6 +1,6 @@
 import json
 
-f = open('/Users/kvgallagher/Desktop/prevalence-0_samples.json', )
+f = open('model_data/prevalence-0_samples.json', )
 data = json.load(f)
 
 DATES = data['dates']
