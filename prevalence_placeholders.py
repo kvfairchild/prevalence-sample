@@ -4,6 +4,7 @@ from scipy.integrate import odeint
 from submodel import SubModel
 from model_data.zip_codes import ZIP_CODES
 from model_data.prevalence_samples import DATES, SAMPLES
+import subprocess
 
 
 class PlaceholderZipCodePrevalenceModel(SubModel):
@@ -64,6 +65,8 @@ if __name__ == "__main__":
     print("\nRunning model: " + str(model))
     samples = model.sample(args.t0, int(args.n_samples), args.dates)
     metadata = model.generate_metadata(args.t0)
+
+    subprocess.call("pwd", shell=True)
 
     model.write_output_samples_metadata('../output', samples, metadata)
 
