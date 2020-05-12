@@ -59,6 +59,7 @@ if __name__ == "__main__":
     model = PlaceholderZipCodePrevalenceModel()
 
     args = model.parse_arguments()
+    print("TEST")
     print(args)
 
     model.read_input_samples_metadata('../input')
