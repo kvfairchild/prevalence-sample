@@ -14,4 +14,4 @@ RUN git clone https://github.com/kvgallagher/prevalence-sample && \
     cd prevalence-sample/model_data && \
     wget https://raw.githubusercontent.com/mit-quest/covid-health-management-system/master/json_model_interfaces/simulation_sample_jsons/prevalence-0_samples.json?token=ADRALN2QUQSPVVZUNGSQ3ES6X3PKC && \
     mv prevalence-0_samples.json?token=ADRALN2QUQSPVVZUNGSQ3ES6X3PKC prevalence-0_samples.json && \
-    cd ..
+    cd .. && mkdir output

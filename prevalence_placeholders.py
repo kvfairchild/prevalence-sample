@@ -1,16 +1,12 @@
 import numpy as np
-import sys
 from scipy.integrate import odeint
+
+from submodel import SubModel
 from model_data.zip_codes import ZIP_CODES
 from model_data.prevalence_samples import DATES, SAMPLES
 
 
-class PlaceholderZipCodePrevalenceModel():
-    model_type = "prevalence"
-    model_name = "placeholder-zip-code-prevalence-model"
-    model_id = "V0.01_2020-05-02"
-    is_forecast_model = True
-    input_models = []
+class PlaceholderZipCodePrevalenceModel(SubModel):
 
     def __init__(self):
         self.zip_codes = ZIP_CODES
@@ -59,7 +55,15 @@ class PlaceholderZipCodePrevalenceModel():
 
 if __name__ == "__main__":
 
-    prevalence_model = PlaceholderZipCodePrevalenceModel()
-    results = prevalence_model.single_draw_from_model(DATES, SAMPLES)
-    print(results)
+    model = PlaceholderZipCodePrevalenceModel()
+
+    args = model.parse_arguments()
+
+    model.read_input_samples_metadata('~/input')
+
+    print("\nRunning model: " + str(model))
+    samples = model.sample(args.t0, int(args.n_samples), args.dates)
+    metadata = model.generate_metadata(args.t0)
+
+    model.write_output_samples_metadata('~/output', samples, metadata)
 
