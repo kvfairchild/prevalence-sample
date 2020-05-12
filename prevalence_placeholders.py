@@ -59,11 +59,11 @@ if __name__ == "__main__":
 
     args = model.parse_arguments()
 
-    model.read_input_samples_metadata('~/input')
+    model.read_input_samples_metadata('../input')
 
     print("\nRunning model: " + str(model))
     samples = model.sample(args.t0, int(args.n_samples), args.dates)
     metadata = model.generate_metadata(args.t0)
 
-    model.write_output_samples_metadata('~/output', samples, metadata)
+    model.write_output_samples_metadata('../output', samples, metadata)
 
