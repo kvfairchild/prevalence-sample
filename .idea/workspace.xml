@@ -15,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/prevalence_placeholders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
+            <state relative-caret-position="423">
+              <caret line="80" selection-start-line="69" selection-end-line="80" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -188,12 +188,12 @@
       <updated>1588945367258</updated>
       <workItem from="1588945369769" duration="9099000" />
       <workItem from="1589032578134" duration="16910000" />
-      <workItem from="1589339090115" duration="1871000" />
+      <workItem from="1589339090115" duration="1907000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27880000" />
+    <option name="totallyTimeSpent" value="27916000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="109" width="1564" height="840" extended-state="0" />
@@ -204,7 +204,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3275401" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3275401" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -282,8 +282,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/prevalence_placeholders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
+        <state relative-caret-position="423">
+          <caret line="80" selection-start-line="69" selection-end-line="80" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
