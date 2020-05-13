@@ -12,14 +12,15 @@ class PlaceholderZipCodePrevalenceModel(SubModel):
     def __init__(self):
         self.model_name = 'placeholder-zip-code-prevalence-model'
         self.model_type = 'prevalence'
-        self.model_id = self._get_latest_git_hash()
+        self.model_id = '953f4a88d1dddf4884810b24ed7c26741e02d59'
 
         self.zip_codes = ZIP_CODES
         self.local_prevalence = self.prevalence_over_time(365*2)
 
     def _get_latest_git_hash(self):
         hash = subprocess.check_output(['git', 'rev-parse', 'HEAD'])
-        return hash.decode("utf-8")
+        hash_utf8 = hash.decode("utf-8")
+        return str(hash_utf8[1:])
 
     def prevalence_over_time(self, num_days: int):
         # From: https://scipython.com/book/chapter-8-scipy/additional-examples/the-sir-epidemic-model/
@@ -67,14 +68,16 @@ if __name__ == "__main__":
 
     model = PlaceholderZipCodePrevalenceModel()
 
-    model.read_input_samples_metadata('/input')
-    t0 = model.params['t_0']
-    n_samples = model.params['n_samples']
-    dates = model.params['dates_to_simulate']
+    print(model._get_latest_git_hash())
 
-    print("\nRunning model: " + str(model))
-    samples = model.sample(t0, int(n_samples), dates)
-    metadata = model.generate_metadata(t0)
-
-    model.write_output_samples_metadata('/output', samples, metadata)
+    # model.read_input_samples_metadata('/input')
+    # t0 = model.params['t_0']
+    # n_samples = model.params['n_samples']
+    # dates = model.params['dates_to_simulate']
+    #
+    # print("\nRunning model: " + str(model))
+    # samples = model.sample(t0, int(n_samples), dates)
+    # metadata = model.generate_metadata(t0)
+    #
+    # model.write_output_samples_metadata('/output', samples, metadata)
 
