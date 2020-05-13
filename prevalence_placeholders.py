@@ -71,7 +71,12 @@ if __name__ == "__main__":
     from pathlib import Path
 
     path = Path(os.getcwd())
-    print(path.parent)
+    for root, dirs, files in os.walk(path.parent):
+        for filename in files:
+            print(filename)
+        for dir in dirs:
+            print(dir)
+        print(root)
 
     model.write_output_samples_metadata('../output', samples, metadata)
 
