@@ -68,16 +68,14 @@ if __name__ == "__main__":
 
     model = PlaceholderZipCodePrevalenceModel()
 
-    print(model._get_latest_git_hash())
+    model.read_input_samples_metadata('/input')
+    t0 = model.params['t_0']
+    n_samples = model.params['n_samples']
+    dates = model.params['dates_to_simulate']
 
-    # model.read_input_samples_metadata('/input')
-    # t0 = model.params['t_0']
-    # n_samples = model.params['n_samples']
-    # dates = model.params['dates_to_simulate']
-    #
-    # print("\nRunning model: " + str(model))
-    # samples = model.sample(t0, int(n_samples), dates)
-    # metadata = model.generate_metadata(t0)
-    #
-    # model.write_output_samples_metadata('/output', samples, metadata)
+    print("\nRunning model: " + str(model))
+    samples = model.sample(t0, int(n_samples), dates)
+    metadata = model.generate_metadata(t0)
+
+    model.write_output_samples_metadata('/output', samples, metadata)
 
