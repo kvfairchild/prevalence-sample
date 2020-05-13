@@ -56,7 +56,7 @@ class PlaceholderZipCodePrevalenceModel(SubModel):
 
 if __name__ == "__main__":
 
-    print("TEST2")
+    print("TEST")
 
     model = PlaceholderZipCodePrevalenceModel()
 
@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
     from pathlib import Path
 
-    path = Path(".")
+    path = Path(os.getcwd())
     print(path.parent)
 
     model.write_output_samples_metadata('../output', samples, metadata)
