@@ -3,8 +3,7 @@ from scipy.integrate import odeint
 
 from submodel import SubModel
 from model_data.zip_codes import ZIP_CODES
-from model_data.prevalence_samples import DATES, SAMPLES
-import os
+# from model_data.prevalence_samples import DATES, SAMPLES
 
 
 class PlaceholderZipCodePrevalenceModel(SubModel):
@@ -58,13 +57,14 @@ if __name__ == "__main__":
 
     model = PlaceholderZipCodePrevalenceModel()
 
-    args = model.parse_arguments()
-
     model.read_input_samples_metadata('/input')
+    t0 = model.params['t_0']
+    n_samples = model.params['n_samples']
+    dates = model.params['dates_to_simulate']
 
     print("\nRunning model: " + str(model))
-    samples = model.sample(args.t0, int(args.n_samples), args.dates)
-    metadata = model.generate_metadata(args.t0)
+    samples = model.sample(t0, int(n_samples), dates)
+    metadata = model.generate_metadata(t0)
 
     model.write_output_samples_metadata('/output', samples, metadata)
 
