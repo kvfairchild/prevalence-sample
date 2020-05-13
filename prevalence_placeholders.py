@@ -12,7 +12,7 @@ class PlaceholderZipCodePrevalenceModel(SubModel):
     def __init__(self):
         self.model_name = 'placeholder-zip-code-prevalence-model'
         self.model_type = 'prevalence'
-        self.model_id = self._get_latest_git_hash()
+        self.model_id = str(self._get_latest_git_hash())
 
         self.zip_codes = ZIP_CODES
         self.local_prevalence = self.prevalence_over_time(365*2)
