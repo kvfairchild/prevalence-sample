@@ -1,4 +1,5 @@
 import numpy as np
+import subprocess
 from scipy.integrate import odeint
 
 from submodel import SubModel
@@ -9,8 +10,15 @@ from model_data.zip_codes import ZIP_CODES
 class PlaceholderZipCodePrevalenceModel(SubModel):
 
     def __init__(self):
+        self.model_name = 'placeholder-zip-code-prevalence-model'
+        self.model_type = 'prevalence'
+        self.model_id = self._get_latest_git_hash()
+
         self.zip_codes = ZIP_CODES
         self.local_prevalence = self.prevalence_over_time(365*2)
+
+    def _get_latest_git_hash(self):
+        return subprocess.check_output(['git', 'rev-parse', 'HEAD'])
 
     def prevalence_over_time(self, num_days: int):
         # From: https://scipython.com/book/chapter-8-scipy/additional-examples/the-sir-epidemic-model/
@@ -39,6 +47,7 @@ class PlaceholderZipCodePrevalenceModel(SubModel):
         # Integrate the SIR equations over the time grid, t.
         ret = odeint(deriv, y0, t, args=(N, beta, gamma))
         S, I, R = ret.T
+
         return I / N
 
     def zip_code_prevalence(self, dates: list, inputs_sample: dict) -> list:
